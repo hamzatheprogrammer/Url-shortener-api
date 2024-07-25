@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express()
+const cors = require("cors")
 require("dotenv").config()
 const shortUrl = require("node-url-shortener")
 
 
 const port = process.env.PORT || 3000
+
+app.use(cors())
 
 app.get("/:url", (req,res)=>{
     const url = req.params.url
